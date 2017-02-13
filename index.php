@@ -5,8 +5,8 @@
 * Created by yeyuxingchen
 * Date: 2017年2月9日22:27:45
 */
-error_reporting(E_ALL || ~E_NOTICE);
-require './so.php';
+//error_reporting(E_ALL || ~E_NOTICE);
+require 'so.php';
 $id_arr = so($type =  $_POST["type"],$s =$_POST["name"],$limit= $_POST["limit"]);
 
 for($x = 0;$x<$limit;$x++){
@@ -61,6 +61,7 @@ for($x = 0;$x<$limit;$x++){
                 &nbsp;&nbsp;1009 主播电台<br>
                 limit 指定返回结果数量，默认为 20<br>
                 offset 指定偏移数量，用于分页，默认为 0<br>
+                	<h2>目前只支持单曲搜索</h2><br>
             </p>
         </div>
         <div>
@@ -74,15 +75,12 @@ for($x = 0;$x<$limit;$x++){
 			<ul type="none">
 			<?php
 			for($x = 0;$x<$limit;$x++){
-				echo "<li><img src=\"".$musicp_arr[$x][2]."\" width=\"50\" height=\"50\">";
-				echo $musicp_arr[$x][1]." - ".$musicp_arr[$x][0];
-				echo "&nbsp;下载:"."<a href=\./goto.php?go=".$id_arr[$x]."\">下载</a>"."<li>";
+				echo "<li>";
+				echo $id_arr[$x].$musicp_arr[$x][1]." - ".$musicp_arr[$x][0];
+				echo "&nbsp;下载(请复制到下载工具):".$_SERVER['HTTP_HOST']."</li>";
 			}
 			?>
 			</ul>
         </div>
-		<audio autoplay="autopaly">
-			<source src="<?php echo "./goto.php?go=".$id_arr[0];?>" type="audio/mp3" />
-		</audio>
     </body>
 </html>
