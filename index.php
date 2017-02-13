@@ -7,10 +7,10 @@
 */
 //error_reporting(E_ALL || ~E_NOTICE);
 require 'so.php';
-$id_arr = so($type =  $_POST["type"],$s =$_POST["name"],$limit= $_POST["limit"]);
+$result_arr = so($type =  $_POST["type"],$s =$_POST["name"],$limit= $_POST["limit"]);
 
 for($x = 0;$x<$limit;$x++){
-	$musicp_arr[$x] = getmusicp($id_arr[$x]);
+	//$musicp_arr[$x] = getmusicp($id_arr[$x]);
 	//echo $musicp_arr[$x][0].$musicp_arr[$x][1].$musicp_arr[$x][2].$musicp_arr[$x][3];
 	//echo "127.0.0.1/wyyy/goto.php?go=".$id_arr[$x]."<br>";
 }
@@ -67,20 +67,22 @@ for($x = 0;$x<$limit;$x++){
         <div>
         搜索<br>
             <form action="index.php" method="post">
-				Name: <input type="text" name="name" value= "小小"><br>
+				Name: <input type="text" name="name" value= ""><br>
 				type: <input type="text" name="type" value= 1><br>
-				limit: <input type="text" name="limit" value = 10><br>
+				limit: <input type="text" name="limit" value = 8><br>
 				<input type="submit">
 			</form>
-			<ul type="none">
+			<ol一>
 			<?php
 			for($x = 0;$x<$limit;$x++){
 				echo "<li>";
-				echo $id_arr[$x].$musicp_arr[$x][1]." - ".$musicp_arr[$x][0];
-				echo "&nbsp;下载(请复制到下载工具):".$_SERVER['HTTP_HOST']."</li>";
+				//echo $musicp_arr[$x][1]." - ".$musicp_arr[$x][0];
+   // echo $result_arr[$x][2] ;
+  echo $result_arr[$x][2] ."-- ".$result_arr[$x][1]."&nbsp;下载(请复制到下载工具):";
+echo "<a href=".$_SERVER['HTpTP_HOST']."/goto.php?go=".$result_arr[$x][0].">".$_SERVER['HTpTP_HOST']."/goto.php?go=".$result_arr[$x][0]."</a>"."</li>";
 			}
 			?>
-			</ul>
+			</ol>
         </div>
     </body>
 </html>
