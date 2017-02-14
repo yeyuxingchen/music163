@@ -77,4 +77,19 @@ function getmusicp($id){
 //	echo "<img src=\"".$blurpicurl."\" alt=\"snowy landscape \">";
 	return $musicp_arr; 
 }
+
+function getmusicc($id=262062){
+	$url = "http://link.hhtjim.com/163/".$id.".mp3";
+	$refer = "http://link.hhtjim.com/";
+	$ch = curl_init();
+	curl_setopt($ch, CURLOPT_URL, $url);
+	curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+	curl_setopt($ch, CURLOPT_BINARYTRANSFER, true);
+	curl_setopt($ch, CURLOPT_REFERER, $refer);
+	$output = curl_exec($ch);
+	curl_close($ch);
+	echo $output;
+//	$musicp_arr[0] = $output_arr["songs"][0]["name"];
+	return $output; 
+}
 ?>
