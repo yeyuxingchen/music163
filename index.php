@@ -1,23 +1,8 @@
 ﻿
 <!DOCTYPE html>
-<?php
-/**
-* Created by yeyuxingchen
-* Date: 2017年2月9日22:27:45
-*/
-//error_reporting(E_ALL || ~E_NOTICE);
-require 'so.php';
-$result_arr = so($type =  $_POST["type"],$s =$_POST["name"],$limit= $_POST["limit"]);
-
-for($x = 0;$x<$limit;$x++){
-	//$musicp_arr[$x] = getmusicp($id_arr[$x]);
-	//echo $musicp_arr[$x][0].$musicp_arr[$x][1].$musicp_arr[$x][2].$musicp_arr[$x][3];
-	//echo "127.0.0.1/wyyy/goto.php?go=".$id_arr[$x]."<br>";
-}
-				?>
 <html>
     <head>
-        <title>网易云音乐搜索</title>
+        <title>网易云音乐api</title>
         <meta http-equiv="content-type" content="text/html; charset=utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
@@ -49,6 +34,7 @@ for($x = 0;$x<$limit;$x++){
     <body>
         <div class="content new" style="display:block">
             <p>请求参数<br>
+            	请求地址 http://42.51.8.139/api/ <br>
                 search 搜索词<br>
                 type 指定类型，对应关系如下，默认为 1<br>
                 &nbsp;&nbsp;1 单曲&nbsp;支持！<br>
@@ -61,28 +47,7 @@ for($x = 0;$x<$limit;$x++){
                 &nbsp;&nbsp;1009 主播电台<br>
                 limit 指定返回结果数量，默认为 20<br>
                 offset 指定偏移数量，用于分页，默认为 0<br>
-                	<h2>目前只支持单曲搜索</h2><br>
             </p>
-        </div>
-        <div>
-        搜索<br>
-            <form action="index.php" method="post">
-				Name: <input type="text" name="name" value= ""><br>
-				type: <input type="text" name="type" value= 1><br>
-				limit: <input type="text" name="limit" value = 8><br>
-				<input type="submit">
-			</form>
-			<ol一>
-			<?php
-			for($x = 0;$x<$limit;$x++){
-				echo "<li>";
-				//echo $musicp_arr[$x][1]." - ".$musicp_arr[$x][0];
-   // echo $result_arr[$x][2] ;
-  echo $result_arr[$x][2] ."-- ".$result_arr[$x][1]."&nbsp;下载(请复制到下载工具):";
-echo "<a href=".$_SERVER['HTpTP_HOST']."/goto.php?go=".$result_arr[$x][0].">".$_SERVER['HTpTP_HOST']."/goto.php?go=".$result_arr[$x][0]."</a>"."</li>";
-			}
-			?>
-			</ol>
         </div>
     </body>
 </html>
