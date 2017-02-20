@@ -69,7 +69,7 @@ function getmusicplaylist($id){
 }
 //获取歌词
 function getmusiclyric($id,$lv=1, $tv=-1){
-	$url = "http://music.163.com/api/song/lyric?os=pc&id=".$id."&lv=".$lv."&tv="$tv."&kv=1";
+	$url = "http://music.163.com/api/song/lyric?os=pc&id=".$id."&lv=".$lv."&tv=".$tv."&kv=1";
 	$refer = "http://music.163.com/";
 	$ch = curl_init();
 	curl_setopt($ch, CURLOPT_URL, $url);
