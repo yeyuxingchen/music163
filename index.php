@@ -72,14 +72,14 @@ for($x = 0;$x<$limit;$x++){
 				limit: <input type="text" name="limit" value = 8><br>
 				<input type="submit">
 			</form>
-			<ol一>
+			<ol>
 			<?php
 			for($x = 0;$x<$limit;$x++){
 				echo "<li>";
 				//echo $musicp_arr[$x][1]." - ".$musicp_arr[$x][0];
    // echo $result_arr[$x][2] ;
   echo $result_arr[$x][2] ."-- ".$result_arr[$x][1]."&nbsp;下载(请复制到下载工具):";
-echo "<a href=".$_SERVER['HTpTP_HOST']."/goto.php?go=".$result_arr[$x][0].">".$_SERVER['HTpTP_HOST']."/goto.php?go=".$result_arr[$x][0]."</a>"."</li>";
+echo "<a href=".$_SERVER['HTpTP_HOST']."\/goto.php?go=".$result_arr[$x][0].">".$_SERVER['HTTP_HOST']."/goto.php?go=".$result_arr[$x][0]."</a></li>";
 			}
 			?>
 			</ol>
